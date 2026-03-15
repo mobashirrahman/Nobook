@@ -50,7 +50,8 @@ class MainViewModel(
             Script(settings.hideReels.value, R.raw.hide_reels, "hide_reels.js"),
             Script(settings.hideStories.value, R.raw.hide_stories, "hide_stories.js"),
             Script(settings.hidePeopleYouMayKnow.value, R.raw.hide_pymk, "hide_pymk.js"),
-            Script(settings.hideGroups.value, R.raw.hide_groups, "hide_groups.js")
+            Script(settings.hideGroups.value, R.raw.hide_groups, "hide_groups.js"),
+            Script(settings.hideGroupPostsFeed.value, R.raw.hide_group_posts_feed, "hide_group_posts_feed.js")
         )
 
         viewModelScope.launch {

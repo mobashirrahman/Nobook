@@ -13,6 +13,7 @@ import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_PEOPLE_YOU_
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_REELS
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_STORIES
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_SUGGESTED
+import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_GROUP_POSTS_FEED
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.IMMERSIVE_MODE
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.PINCH_TO_ZOOM
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.REMOVE_ADS
@@ -97,6 +98,11 @@ class SettingsViewModel(
         initialValue = initialPrefs[HIDE_GROUPS] ?: false,
         started = SharingStarted.WhileSubscribed()
     )
+    val hideGroupPostsFeed = dataStore.hideGroupPostsFeed.stateIn(
+        scope = viewModelScope,
+        initialValue = initialPrefs[HIDE_GROUP_POSTS_FEED] ?: false,
+        started = SharingStarted.WhileSubscribed()
+    )
     val isRevertDesktop = dataStore.revertDesktop.stateIn(
         scope = viewModelScope,
         initialValue = false,
@@ -178,6 +184,12 @@ class SettingsViewModel(
     fun setHideGroups(hideGroups: Boolean) {
         viewModelScope.launch {
             dataStore.setHideGroups(hideGroups)
+        }
+    }
+
+    fun setHideGroupPostsFeed(hideGroupPostsFeed: Boolean) {
+        viewModelScope.launch {
+            dataStore.setHideGroupPostsFeed(hideGroupPostsFeed)
         }
     }
 

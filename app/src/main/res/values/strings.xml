@@ -26,6 +26,7 @@
     <string name="stories">Stories</string>
     <string name="people_you_may_know">People you may know</string>
     <string name="groups">Groups</string>
+    <string name="hide_group_posts_feed">Group posts in feed</string>
     <string name="enable_pure_black_theme_for_amoled_displays">Enable pure black theme. Needs \'Dark mode\' to work</string>
     <string name="keep_the_navigation_bar_visible_while_scrolling">Keep the navigation bar visible while scrolling</string>
     <string name="hide_system_bars_for_a_fullscreen_experience">Hide system bars for a fullscreen experience</string>

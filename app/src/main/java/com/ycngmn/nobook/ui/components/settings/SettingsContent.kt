@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.Camera
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.Diversity1
 import androidx.compose.material.icons.filled.EmojiPeople
+import androidx.compose.material.icons.filled.FilterAlt
 import androidx.compose.material.icons.filled.Padding
 import androidx.compose.material.icons.filled.Try
 import androidx.compose.material.icons.outlined.Circle
@@ -192,6 +193,7 @@ private fun HideOptionsDialog(
     val hideStories = viewModel.hideStories.collectAsState()
     val hidePeopleYouMayKnow = viewModel.hidePeopleYouMayKnow.collectAsState()
     val hideGroups = viewModel.hideGroups.collectAsState()
+    val hideGroupPostsFeed = viewModel.hideGroupPostsFeed.collectAsState()
 
     Dialog(
         onDismissRequest = { onDismiss() }
@@ -248,6 +250,15 @@ private fun HideOptionsDialog(
                         title = stringResource(R.string.groups),
                         isActive = hideGroups.value,
                         onClick = { viewModel.setHideGroups(!hideGroups.value) }
+                    )
+                )
+
+                HideDialogItem(
+                    SettingsItem(
+                        icon = Icons.Filled.FilterAlt,
+                        title = stringResource(R.string.hide_group_posts_feed),
+                        isActive = hideGroupPostsFeed.value,
+                        onClick = { viewModel.setHideGroupPostsFeed(!hideGroupPostsFeed.value) }
                     )
                 )
             }

@@ -25,6 +25,7 @@ class SettingsDataStore(private val context: Context) {
         val HIDE_STORIES = booleanPreferencesKey("hide_stories")
         val HIDE_PEOPLE_YOU_MAY_KNOW = booleanPreferencesKey("hide_people_you_may_know")
         val HIDE_GROUPS = booleanPreferencesKey("hide_groups")
+        val HIDE_GROUP_POSTS_FEED = booleanPreferencesKey("hide_group_posts_feed")
         val isRevertDesktop = booleanPreferencesKey("is_revert_desktop")
     }
 
@@ -98,5 +99,10 @@ class SettingsDataStore(private val context: Context) {
     val hideGroups = context.dataStore.data.map { it[HIDE_GROUPS] ?: false }
     suspend fun setHideGroups(hideGroups: Boolean) {
         context.dataStore.edit { it[HIDE_GROUPS] = hideGroups }
+    }
+
+    val hideGroupPostsFeed = context.dataStore.data.map { it[HIDE_GROUP_POSTS_FEED] ?: false }
+    suspend fun setHideGroupPostsFeed(hideGroupPostsFeed: Boolean) {
+        context.dataStore.edit { it[HIDE_GROUP_POSTS_FEED] = hideGroupPostsFeed }
     }
 }
