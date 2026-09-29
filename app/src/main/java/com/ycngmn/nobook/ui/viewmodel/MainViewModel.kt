@@ -70,10 +70,11 @@ class MainViewModel(
         resources: Resources,
         settings: SettingsViewModel
     ) {
+        clearScripts()
         loadScripts(resources, settings)
     }
 
-    fun clearScripts() {
+    private fun clearScripts() {
         _scripts.value = null
     }
 }
